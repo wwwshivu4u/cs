@@ -4,7 +4,7 @@
 
 nav {
 	display: flex;
-	position: fixed;
+	position: inherit;
 	align-items: stretch;
 	top: 0;
 	left: 0;
@@ -97,7 +97,7 @@ nav {
 				&:not(:last-child)::after {
 					content: '';
 					position: absolute;
-					width: 2px;
+					width: 1%;
 					height: 80%;
 					top: 10%;
 					bottom: 0;

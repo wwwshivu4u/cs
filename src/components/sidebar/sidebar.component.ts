@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component, AfterViewInit, ElementRef } from '@
   ],
   template: `  <div class="sidebar">
   <ul class="show">
-    <li class="section" (click)="toggleList($event)"><div><span class="icon material-symbols-rounded">person</span>112</div>Friends</li>
+    <li class="section" (click)="toggleList($event)"><div><span class="icon material-symbols-rounded">person</span>112</div>Friends <span class="icon material-symbols-rounded">person_add</span></li>
     <li class="user-active"><a href="#"><span class="icon material-symbols-rounded">account_circle</span>Someone</a></li>
     <li><a href="#"><span class="icon material-symbols-rounded">account_circle</span>Someone else</a></li>
   </ul>
@@ -27,7 +27,9 @@ import { ChangeDetectionStrategy, Component, AfterViewInit, ElementRef } from '@
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarComponent implements AfterViewInit {
+
   constructor(private elementRef: ElementRef) {}
+
   ngAfterViewInit() {
     const sidelists = this.elementRef.nativeElement.querySelectorAll(".sidebar ul");
     sidelists.forEach((list: any) => {
@@ -40,6 +42,7 @@ export class SidebarComponent implements AfterViewInit {
       });
     });
   }
+
   toggleList(event: any) {
     event.preventDefault();
     const list = event.target.closest('ul');
@@ -48,4 +51,5 @@ export class SidebarComponent implements AfterViewInit {
     sidelists.forEach((l: any) => l.className = "");
     list.classList.add("show");
   }
+  
 }
